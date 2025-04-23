@@ -4,6 +4,43 @@
 
 <hr>
 
+<form action="/insert_movie" method="post">
+  <div>
+    <label for="new_movie_title" >Title</label>
+    <input id="new_movie_title" name="new_movie_title" type="text">
+  </div>
+
+  <div>
+    <label for="new_movie_year" >Year</label>
+    <input id="new_movie_year" name="new_movie_year" type="text">
+  </div>
+
+  <div>
+    <label for="new_movie_duration">Duration</label>
+    <input id="new_movie_duration" name="new_movie_duration" type="text">
+  </div>
+ 
+  <div>
+    <label for="new_movie_description">Description</label>
+    <textarea id="new_movie_description" name="new_movie_description" rows="3"></textarea>
+  </div>
+
+  <div>
+    <label for="new_movie_image">Image</label>
+    <input type="text" id="new_movie_image" name="new_movie_image">
+  </div>
+
+
+  <div>
+    <label for="new_movie_director" >Director ID</label>
+    <input id="new_movie_director" name="new_movie_director" type="text">
+  </div>
+
+  <button>Create movie</button>
+</form>
+
+<hr>
+
 <table border="1">
   <tr>
     <th>
