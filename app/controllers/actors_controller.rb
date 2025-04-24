@@ -1,4 +1,15 @@
 class ActorsController < ApplicationController
+  def create
+    a = Actor.new
+    
+    a.name = params.fetch("new_actor_name")
+    a.dob = params.fetch("new_actor_dob")
+    a.bio = params.fetch("new_actor_bio")
+    a.image = params.fetch("new_actor_image")
+    a.save
+
+    redirect_to("/actors")  
+  end
   def index
     matching_actors = Actor.all
     @list_of_actors = matching_actors.order({ :created_at => :desc })
