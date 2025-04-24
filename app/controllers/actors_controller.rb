@@ -17,6 +17,17 @@ class ActorsController < ApplicationController
     the_actor.destroy
     redirect_to("/actors")
   end
+  def modify
+    the_id = params.fetch("the_id")
+    matching_records = Actor.where({ :id => the_id })
+    the_actor = matching_records.at(0)
+    the_actor.name = params.fetch("updated_name")
+    the_actor.dob = params.fetch("updated_dob")
+    the_actor.bio = params.fetch("updated_bio")
+    the_actor.image = params.fetch("updated_image")
+    the_actor.save
+    redirect_to("/actors/#{the_actor.id}")
+  end
   def index
     matching_actors = Actor.all
     @list_of_actors = matching_actors.order({ :created_at => :desc })

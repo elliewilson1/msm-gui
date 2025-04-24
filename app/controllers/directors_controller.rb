@@ -17,6 +17,17 @@ class DirectorsController < ApplicationController
     the_director.destroy
     redirect_to("/directors")
   end
+  def modify
+    the_id = params.fetch("the_id")
+    matching_records = Director.where({ :id => the_id })
+    the_director = matching_records.at(0)
+    the_director.name = params.fetch("updated_name")
+    the_director.dob = params.fetch("updated_dob")
+    the_director.bio = params.fetch("updated_bio")
+    the_director.image = params.fetch("updated_image")
+    the_director.save
+    redirect_to("/directors/#{the_director.id}")
+  end
   def index
     matching_directors = Director.all
     @list_of_directors = matching_directors.order({ :created_at => :desc })
